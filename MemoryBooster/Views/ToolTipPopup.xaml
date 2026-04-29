@@ -1,0 +1,12 @@
+<Window x:Class="MemoryBooster.Views.ToolTipPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight">
+    <Border Background="#DD333333" CornerRadius="6" Padding="14,7">
+        <TextBlock x:Name="TxtMessage" Foreground="#00FF88"
+                   FontSize="12" FontWeight="Bold"
+                   FontFamily="Microsoft YaHei"/>
+    </Border>
+</Window>

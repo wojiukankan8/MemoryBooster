@@ -1,0 +1,19 @@
+﻿# Build outputs
+**/bin/
+**/obj/
+**/build/
+*.user
+*.suo
+
+# VS cache
+.vs/
+
+# Native intermediate
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# Log
+error.log

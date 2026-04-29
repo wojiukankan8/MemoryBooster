@@ -1,0 +1,74 @@
+﻿<Window x:Class="MemoryBooster.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize"
+        Width="80" Height="80">
+    <Grid x:Name="RootGrid">
+        <!-- Floating Ball -->
+        <Ellipse x:Name="BallShadow" Width="68" Height="68" 
+                 Fill="#33000000" Margin="4,4,0,0"/>
+        <Ellipse x:Name="BallOuter" Width="68" Height="68"
+                 Stroke="#40000000" StrokeThickness="2"
+                 Cursor="Hand">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.3,0.3">
+                    <GradientStop x:Name="GradStop1" Color="#66CC50" Offset="0.0"/>
+                    <GradientStop x:Name="GradStop2" Color="#339922" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        
+        <!-- Inner ring -->
+        <Ellipse Width="58" Height="58" Stroke="#55FFFFFF" StrokeThickness="1.5"
+                 Fill="Transparent" IsHitTestVisible="False"/>
+
+        <!-- Percent text -->
+        <TextBlock x:Name="TxtPercent" Text="0%" 
+                   Foreground="White" FontSize="18" FontWeight="Bold"
+                   FontFamily="Segoe UI"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Margin="0,-8,0,0" IsHitTestVisible="False"/>
+
+        <!-- Label -->
+        <TextBlock x:Name="TxtLabel" Text="&#x5185;&#x5B58;&#x5360;&#x7528;"
+                   Foreground="#CCFFFFFF" FontSize="9" FontFamily="Microsoft YaHei"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Margin="0,18,0,0" IsHitTestVisible="False"/>
+
+        <!-- Network speed overlay -->
+        <StackPanel x:Name="NetSpeedPanel" Orientation="Vertical"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                    Margin="0,0,0,-28" IsHitTestVisible="False" Visibility="Collapsed">
+            <TextBlock x:Name="TxtUpSpeed" Text="&#x2191; 0 B/s" Foreground="#88FFFFFF"
+                       FontSize="8" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+            <TextBlock x:Name="TxtDownSpeed" Text="&#x2193; 0 B/s" Foreground="#88FFFFFF"
+                       FontSize="8" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+        </StackPanel>
+
+        <!-- Cleaning spinner overlay -->
+        <Grid x:Name="SpinnerOverlay" Visibility="Collapsed">
+            <Ellipse Width="50" Height="50" Fill="#88000000"/>
+            <Path x:Name="SpinnerArc" Stroke="White" StrokeThickness="3" 
+                  HorizontalAlignment="Center" VerticalAlignment="Center"
+                  RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <RotateTransform x:Name="SpinnerRotate"/>
+                </Path.RenderTransform>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,-20">
+                            <ArcSegment Point="14,-14" Size="20,20" SweepDirection="Clockwise"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <TextBlock Text="&#x6E05;&#x7406;&#x4E2D;" Foreground="White" FontSize="10"
+                       FontFamily="Microsoft YaHei" FontWeight="Bold"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>

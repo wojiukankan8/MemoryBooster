@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- Lowest .NET Framework 4.x that supports async/await + Task.Run used by
+         this project. Any installed 4.5–4.8 runtime (Win7 SP1 onward ships
+         with one via Windows Update) will run this binary. -->
+    <TargetFramework>net45</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>内存清理加速器</AssemblyName>
+    <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+    <UseWPF>true</UseWPF>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="MemoryCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <!-- net45 doesn't ship System.ValueTuple natively; the package backports it
+         so (T1,T2) tuple syntax compiles on any 4.5+ runtime. -->
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>
