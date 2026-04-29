@@ -5,15 +5,15 @@
 *.user
 *.suo
 
-# VS cache
+# VS / Rider cache
 .vs/
+.idea/
 
 # Native intermediate
 *.obj
 *.pdb
 *.ilk
 *.exp
-*.lib
 
-# Log
+# Runtime logs
 error.log
